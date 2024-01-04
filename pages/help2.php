@@ -1,0 +1,109 @@
+<?php
+
+require_once '../php/dbconnection.inc.php';
+session_start();
+
+if (!isset($_SESSION['liname'])) {
+    header("Location: ../php/login_manager.php");
+}else{
+  $email = $_SESSION['Email'];
+  $query=mysqli_query($conn,"SELECT * FROM `librarian` WHERE `Email_Address`='$email'")or die(mysqli_error());
+  $row=mysqli_fetch_array($query);
+}
+
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Articles & Books Management  - Help Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="../style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="header_container">
+  <div id="header"> <a href="../index2.php"><img src="../images/logo.jpg" alt="Articles & Books Management " title="Articles & Books Management " border="0" /></a>
+    <ul>
+      <li><a href="../index2.php">Home</a> </li>
+      <li><a href="about2.php">About us</a></li>
+      <li><a href="help2.php">Help</a></li>
+ <li><a href="../php/logout.php">Logout</a></li>
+      <li><a href="contact2.php">Contact</a> </li>
+    </ul>
+    <h1 style="color: yellow;">Articles & Books Management  ~ Knowledge In the Palm of Your Hands</h1>
+  </div>
+</div>
+<br>
+<div style="text-align: center;">
+<div>
+<h2 style="color: yellow;">~Help and FAQs~</h2>
+    </div> 
+    <br>    
+    <div>
+      <p>Below are a some Frequently Asked Questions (FAQs) and Tips that will help you utilize our system with maximum efficiency:</p><br>
+      <h3 style="color: yellow;">~ How To Borrow A Articles & Books ? ~</h3>
+      <br>
+      <ul>
+        <li>Log In or Register.</li>
+        <li>View the large number of Articles & Bookss available on our system.</li>
+        <li>Select the Articles & Books that you desire to read.</li>
+        <li>Fill in the appropriate borrowing information.</li>
+        <li>Enjoy your reading!</li>
+      </ul>
+      <br>
+      <h3 style="color: yellow;">~ How To Register as a Librarian Under the Library System ? ~</h3>
+      <br>
+      <ul>
+        <li>Gather the necessary academic records and ensure that they're official.</li>
+        <li>Write a brief CV.</li>
+        <li>Gather the information any previous working experiences.</li>
+        <li>Read all the information, to ensure it is correct.</li>
+        <li>Send us an email with all the info <a class="a1" href="mailto:kelvinlemanta@strathmore.edu" style="font-weight: bold;">HERE</a>.</li>
+        <li>We will respond to your email as soon as possible, thank you for choosing to work with us.</li>
+      </ul>
+      <br>
+      <h3 style="color: yellow;">~ How to Reset my Password ? ~</h3>
+      <br>
+      <ul>
+        <li>Navigate to the login page for your specified module (manager, librarian or user).</li>
+        <li>Click on "Forgot Password".</li>
+        <li>Answer the Forget Password Question correctly.</li>
+        <li>Enter and Confirm your New Password.</li>
+        <li>Your Password has now been successfully changed!</li>
+      </ul>
+      <br>
+      <h3 style="color: yellow;">~ How to Return A Borrowed Articles & Books ? ~</h3>
+      <br>
+      <ul>
+        <li>Login to your Librarian or User Module.</li>
+        <li>Navigate to the View Borrowed Articles & Bookss.</li>
+        <li>Enter the Borrow ID of the borrowed Articles & Books you would like to return.</li>
+        <li>Click on the "Return Articles & Books" Button.</li>
+        <li>Your borrowed Articles & Books has successfully been returned!</li>
+        <li>P.S: You will be fined $5 for every extra day you do not return a borrowed Articles & Books if the due date has passed.</li>
+      </ul>
+      <br>
+      <h3 style="color: yellow;">~ How to Print A Table ? ~</h3>
+      <br>
+      <ul>
+        <li>Login to your specified module (manager, librarian or user).</li>
+        <li>Navigate to any of the tables, for example View Borrowed Articles & Bookss.</li>
+        <li>Click on the "Print Table" button.</li>
+        <li>Select your printer and configure the settings till you have the desired output.</li>
+        <li>Click Print.</li>
+      </ul>
+    </div>
+  </div>
+  <br>
+    <div id="footermainPan">
+  <div id="footerPan">
+    <ul>
+      <li><a href="../index2.php">Home</a> </li>
+      <li><a href="about2.php">About us</a></li>
+      <li><a href="help2.php">Help</a></li>
+      <li><a href="contact2.php">Contact</a> </li>
+    </ul>
+  </div>
+</div>
+<div align=center>Created by Kelvin Lemanta@2024</a></div></body>
+</html>
