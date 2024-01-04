@@ -1,0 +1,66 @@
+DROP DATABASE IF EXISTS library_management_system;
+
+CREATE DATABASE IF NOT EXISTS library_management_system;
+
+CREATE TABLE IF NOT EXISTS library_management_system.admin (
+    Administrator_ID INT NOT NULL AUTO_INCREMENT,
+    Fullname TEXT NOT NULL,
+    Email_Address TEXT NOT NULL,
+    Phone_Number TEXT NOT NULL,
+    Password TEXT NOT NULL,
+    PRIMARY KEY (Administrator_ID),
+    UNIQUE (Email_Address)
+) ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS library_management_system.user (
+    User_ID INT NOT NULL AUTO_INCREMENT,
+    First_Name TEXT NOT NULL,
+    Last_Name TEXT NOT NULL,
+    Email_Address TEXT NOT NULL,
+    Phone_Number TEXT NOT NULL,
+    Recovery_Question TEXT NOT NULL,
+    Recovery_Answer TEXT NOT NULL,
+    Password TEXT NOT NULL,
+    PRIMARY KEY (User_ID),
+    UNIQUE (Email_Address)
+) ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS library_management_system.librarian (
+    Librarian_ID INT NOT NULL AUTO_INCREMENT,
+    Fullname TEXT NOT NULL,
+    Email_Address TEXT NOT NULL,
+    Phone_Number TEXT NOT NULL,
+    Recovery_Question TEXT NOT NULL,
+    Recovery_Answer TEXT NOT NULL,
+    Password TEXT NOT NULL,
+    PRIMARY KEY (Librarian_ID),
+    UNIQUE (Email_Address)
+) ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS library_management_system.books (
+    Book_ID INT NOT NULL AUTO_INCREMENT,
+    Title TEXT NOT NULL,
+    Author TEXT NOT NULL,
+    Genre TEXT NOT NULL,
+    Description TEXT NOT NULL,
+    Publisher TEXT NOT NULL,
+    Publishing_Company TEXT NOT NULL,
+    Number_Of_Pages INT NOT NULL,
+    PRIMARY KEY (Book_ID)
+) ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS library_management_system.borrowed_books (
+    Book_ID INT NOT NULL,
+    Email_Address TEXT NOT NULL,
+    Date_Of_Borrow TEXT NOT NULL,
+    Date_To_Return TEXT NOT NULL
+) ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS library_management_system.returned_books (
+    Book_ID INT NOT NULL,
+    Email_Address TEXT NOT NULL,
+    Date_Returned TEXT NOT NULL,
+    Status TEXT NOT NULL
+) ENGINE = InnoDB;
+
+INSERT INTO library_management_system.admin (Fullname, Email_Address, Phone_Number, Password) VALUES ('Administrator', 'admin@gmail.com', '0712345678', MD5('12345678'));
